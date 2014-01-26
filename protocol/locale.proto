@@ -1,0 +1,14 @@
+package robost.protocol.config;
+
+message Locale {
+	optional string identifier = 1;
+	optional string description = 2;
+	optional int32 flag = 3;
+};
+
+message Locales {
+	repeated Locale locale = 1;
+};
+
+
+

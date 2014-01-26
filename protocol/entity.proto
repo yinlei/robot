@@ -1,0 +1,28 @@
+package robost.protocol
+
+import "robost/field_options.proto"
+
+message EntityId{
+	requied int32 high = 1;
+	requied int32 low = 2;
+}
+
+
+message Identity{
+	requied EntityId account_id = 1;
+	requied EntityId game_account_id = 2;
+}
+
+message AccountInfo{
+	required bool account_paid = 1;
+	required uin32 country_id = 2;
+	optional int32 battle_tag = 3;
+	optional bool manual_review = 4[default = false];
+}
+
+
+
+
+
+
+

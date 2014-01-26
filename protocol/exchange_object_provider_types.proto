@@ -1,0 +1,61 @@
+package robost.protocol.exchange_object_provider;
+
+import "robost/entity.proto"
+import "robost/exchange.proto"
+
+message ReportAuthorizeRequest {
+	optional robost.protocol.exchange.PartitionId partition_id = 1;
+	optional robost.protocol.exchange.PartitionId token = 2;
+	optional int32 result = 3;
+	optional robost.protocol.exchange.BlobFromOfType auth_handle = 4;
+	optional int32 defer_delivery = 5;
+	optional robost.protocol.EntityId bnet_account_id = 6;
+	optional robost.protocol.exchange.ActionResultDetail result_detail = 7;
+	optional int32 avs_result = 8;
+	optional int32 cvv_result = 9;
+	optional robost.protocol.exchange.BlobFrom notification_extra_info = 10;
+};
+
+message ReportSettleRequest {
+	optional robost.protocol.exchange.PartitionId partition_id = 1;
+	optional robost.protocol.exhcange.PartitionId token = 2;
+	optional int32 result = 3;
+	optional robost.protocol.exchange.BloblFrom notification_extra_info = 4;
+	optional robost.protocol.exchange.ActionResultDetail result_detail = 5;
+};
+
+message ReportCancelRequest {
+	optional robost.protocol.exchange.PartitionId partition_id = 1;
+	optional robost.protocol.exchange.PartitionId token = 2;
+	optional int32 result = 3;
+	optional robost.protocol.exchange.BlobFrom notification_extra_info = 4;
+	optional robost.protocol.exchange.ActionResultDetail result_detail = 5;
+};
+
+message GetPaymentMethodsRequest {
+	optional robost.protocol.EntityId robost_account = 1;
+	optional robost.protocol.EntityId game_account = 2;
+	optional int32 currency = 3;
+	optional int32 cash_in_out_mask = 4;
+	optional bool refresh_payment_method_cache = 5[default = false];
+	optional bool refresh_e_balance_cache = 6[default = false];
+	optional bool sms_enable = 7[default = false];
+};
+
+message PaymentMethod {
+	optional robost.protocol.exchange.BlobFrom account = 1;
+	optional string description = 2;
+	optional int32 amount = 3;
+	optional int32 cash_in_out_mask = 4;
+	optional robost.protocol.exchange.BillingAddress billing_address = 5;
+	optional int32 wallet_id = 6;
+	optional int32 cap_restriction = 7;
+	optional int32 authenticator_cap = 8;
+	optional int32 soft_cap = 9;
+	optional bool active = 10[default = false];
+};
+
+message GetPaymentMethodsResponse {
+	optional robost.protocol.exchange_object_provider.PaymentMethod methods = 1;
+};
+

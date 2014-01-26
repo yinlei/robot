@@ -1,0 +1,60 @@
+package robost.protocol.invitation;
+
+import "robost/attribute.proto";
+import "robost/entity.proto";
+
+message Invitation {
+	optional int32 id = 1;
+	optional Identity inviter_identity = 2;
+	optional Identity invitee_identity = 3;
+	optional string inviter_name = 4;
+	optional string invitee_name = 5;
+	optional string invitation_message = 6;
+	optional int64 creation_time = 7;
+	optional int64 expiration_time = 8;
+};
+
+message Suggestion {
+	optional EntityId channel_id = 1;
+	optional EntityId suggester_id = 2;
+	optional EntityId suggestee_id = 3;
+	optional string suggester_name = 4;
+	optional string suggestee_name = 5;
+	optional EntityId suggester_account_id = 6; 
+};
+
+message InvitaitonParams {
+	optional string invitation_message = 1;
+	optional int32 expiration_time = 2;
+};
+
+message SendInbvitationRequest {
+	optional Identity agent_identity = 1;
+	optional EntityId target_id = 2;
+	optional InvitationParams params = 3;
+	optional AccountInfo agent_info = 4;
+};
+
+message SendInvitationResponse {
+	optional Invitation invitation = 1;
+};
+
+message UpdateInvitationRequest {
+	optional Identity agent_identity = 1;
+	optional int32 invitation_id = 2;
+	optional InvitationParams params = 3;
+};
+
+message GenericRequest {
+	optional EntityId agent_id = 1;
+	optional EntityId target_id = 2;
+	optional int32 invitation_id = 3;
+	optional string invitee_name = 4;
+	optional string inviter_name = 5;
+	optional int32 previous_role = 6;
+	optional int32 desired_role = 7;
+};
+
+
+
+

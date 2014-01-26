@@ -1,0 +1,33 @@
+package robost.protocol;
+
+import "attribute.proto"
+
+message Privilege {
+	required string name = 1;
+	required bool value = 2;
+};
+
+message RoleSetConfig {
+	requried Privilege privilege = 1;
+	required RoleSet role_set = 2;
+};
+
+message Rolt {
+	requied int32 id = 1;
+	requied int32 privilege = 2;
+	requied int32 assignable_role = 3;
+	requied bool required = 4[defualut = false];
+	requied bool unique = 5[default = false];
+	required int32 relegation_role = 6;
+	requied Attribute attribute = 7;
+};
+
+message RoleSet {
+	required string program = 1;
+	required string service = 2;
+	required int32 subtype = 3[default = 0];
+	requied Role role = 4;
+	rerquied int32 default_role = 5;
+	required int32 max_memebers = 6;
+	required Attribute attribute = 7;
+};

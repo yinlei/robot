@@ -1,0 +1,40 @@
+package robost.protocol.exchange;
+
+import "robost/field_options.proto"
+
+message PartitionId {
+	optional int32 high = 1;
+	optional int32 low = 2;
+};
+
+message BlobFrom {
+	optional int32 source = 1;
+	optional bytes data = 2;
+	optional bytes extra_data = 3;
+};
+
+message BlobOfType {
+	optional int32 type = 1;
+	optional bypes data = 2;
+	optional bytes extra_data = 3;
+};
+
+message BlobFromOfType {
+	optional int32 source = 1;
+	optional int32 type = 2;
+	optional bytes data = 3;
+};
+
+message ActionResultDetail {
+	optional int32 category = 1;
+	optional int32 result_resion = 2;
+};
+
+message BillingAddress {
+	optional int32 country_id = 1;
+	optional string city = 2;
+	optional string state = 3;
+	optional int32 postal_code = 4;
+};
+
+

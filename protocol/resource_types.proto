@@ -1,0 +1,29 @@
+package robost.protocol
+
+import "robost/content_handle.proto"
+import "robost/attribute.proto"
+
+message Playload {
+	optional int32 content_handle = 1;
+	optional int32 data_size = 2;
+	optional Attribute custom = 3;
+};
+
+message Dependency {
+	optional int32 resource_handle = 1;
+	optional Attribute custom = 2;
+};
+
+message Metadata {
+	optional Dependency dependency = 1;
+	optional Payload payload = 2;
+};
+
+message IndexEntry {
+	optional string name = 1;
+	optional string url = 2;
+};
+
+message ResourceIndex {
+	optional IndexEntry entry;
+};

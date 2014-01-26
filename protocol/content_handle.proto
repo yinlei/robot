@@ -1,0 +1,8 @@
+package robost.protocol;
+
+message ContentHandle {
+	optional int32 region = 1;
+	optional stirng usage = 2;
+	optional string hash = 4;
+	optional string proto_url = 5;
+};

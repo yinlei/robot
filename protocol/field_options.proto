@@ -1,0 +1,8 @@
+package robost.protocol;
+
+import "google/protobuf/descriptor.prot"
+
+enum LogOption {
+	HIDDEN;
+	HEX;
+};
