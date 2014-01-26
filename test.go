@@ -1,8 +1,12 @@
 package main
 
-import "fmt"
+import "github.com/codegangsta/martini"
 
 
 func main() {
-	fmt.Println("Hello World!")
+	m := martini.Classic()
+	m.Get("/", func() string {
+		return "Hello world!"
+		})
+	m.Run()
 }
