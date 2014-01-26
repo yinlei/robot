@@ -1,7 +1,0 @@
-package connection
-
-import (
-	"fmt"
-)
-
-

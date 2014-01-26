@@ -5,11 +5,11 @@ import (
 )
 
 type Agent struct {
-	id int
-	conn net.Conn
+	id       int
+	conn     net.Conn
 	incoming chan []byte
 	outgoing chan []byte
-	close chan bool
+	close    chan bool
 }
 
 var id int = 0
@@ -27,7 +27,7 @@ func writeHandler(a *Agent) {
 		select {
 		case buffer <- a.outgoing:
 			a.Write(buffer)
-		case <- a.close:
+		case <-a.close:
 			a.conn.Close()
 			break
 		}
@@ -39,7 +39,7 @@ func NewAgent(conn net.Conn) *Agent {
 	agent := &Agent{id, conn, make(chan []byte), make(chan []byte), make(chan bool)}
 	go readHandler(agent)
 	go writeHandler(agent)
-	return  agent
+	return agent
 }
 
 func (self *Agent) Read(buffer []byte) bool {
@@ -74,5 +74,3 @@ func (self *Agent) Equal(dst *Agent) bool {
 func (self *Agent) SendBuffer(buffer []byte) {
 	self.outgoing <- buffer
 }
-
-

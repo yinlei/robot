@@ -1,7 +1,0 @@
-package gate
-
-import (
-	"fmt"
-)
-
-

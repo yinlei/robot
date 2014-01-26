@@ -14,7 +14,8 @@ set GOPATH=%~dp0
 
 gofmt -w src
 
-go install test
+go get code.google.com/p/goprotobuf/proto
+go get code.google.com/p/goprotobuf/protoc-gen-go
 
 :end
 echo finished
