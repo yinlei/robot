@@ -1,0 +1,16 @@
+package protocol
+
+//	协议包
+message Packet{
+	optional int32 opcode = 1;
+	optional string name = 2;
+	optional int32 module = 3;
+	optional int32 action = 4;
+	optional bytes data = 5;
+}
+
+
+
+
+
+

@@ -38,6 +38,8 @@ func (self *Gate) Start(name string) {
 	}
 	fmt.Println("监听启动")
 
+	self.listener = l
+
 	//self.listener = l
 	for i := 1; i < 10; i++ {
 		go self.doAccept(l)
@@ -49,15 +51,20 @@ func (self *Gate) Start(name string) {
 
 func (self *Gate) doAccept(l *net.TCPListener) {
 	for {
-		_, err := l.Accept()
+		conn, err := l.Accept()
 		if err != nil {
 			fmt.Println(err)
 			continue
 		} else {
 			//self.conns <- conn
 			fmt.Println("Tcp Accept")
+			go self.handleConnection(conn)
 		}
 	}
+}
+
+func (self *Gate) handleConnection(conn net.Conn) {
+	//	
 }
 
 func (self *Gate) Loop() {

@@ -13,6 +13,7 @@ type Service interface {
 	Loop()
 	Stop()
 
-	//	同步的方式调用服务功能
+	//	同步的方式调用服务
 	Call(name string, params ...interface{}) bool
+	//	异步的方式调用服务
 }
