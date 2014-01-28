@@ -13,7 +13,7 @@ set OLDGOPATH=%GOPATH%
 set GOPATH=%~dp0
 
 gofmt -w src
-go run test.go
+go run test-protobuf.go
 
 :end
 echo finished

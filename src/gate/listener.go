@@ -4,7 +4,7 @@ import (
 	"net"
 )
 
-//	
+//
 func NewListener(addressAndPort string) (net.Listener, error) {
 	if addressAndPort == "" {
 		return nil, nil

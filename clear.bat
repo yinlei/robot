@@ -12,7 +12,6 @@ goto end
 set OLDGOPATH=%GOPATH%
 set GOPATH=%~dp0
 
-./bin/protoc-gen-go.exe 
 
 :end
 echo finished

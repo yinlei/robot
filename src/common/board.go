@@ -23,9 +23,9 @@ func (self *Board) Regist(service interface{}) {
 
 func (self *Board) Dispatch() {
 	for {
-			m := <-self.bus
-			fmt.Println("Dispatch Message")
-			fmt.Println(m.id)
+		m := <-self.bus
+		fmt.Println("Dispatch Message")
+		fmt.Println(m.id)
 	}
 }
 

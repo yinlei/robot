@@ -64,7 +64,7 @@ func (self *Gate) doAccept(l *net.TCPListener) {
 }
 
 func (self *Gate) handleConnection(conn net.Conn) {
-	//	
+	//
 }
 
 func (self *Gate) Loop() {

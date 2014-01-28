@@ -17,7 +17,7 @@ func GetBuffer(size int) []byte {
 
 	var buf []byte
 	select {
-	case buf = <- ch:
+	case buf = <-ch:
 	default:
 	}
 
@@ -30,11 +30,11 @@ func GetBuffer(size int) []byte {
 
 func PutBuffer(buf []byte) {
 	buf = buf[:cap(buf)]
-	
+
 	if len(buf) <= 0 {
 		return
 	}
-	
+
 	var ch = smallBuffers
 	if len(buf) < largeMin {
 		ch = largeBuffers

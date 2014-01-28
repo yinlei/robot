@@ -12,7 +12,9 @@ goto end
 set OLDGOPATH=%GOPATH%
 set GOPATH=%~dp0
 
-./bin/protoc-gen-go.exe 
+cd src
+cd protocol
+protoc.exe  --go_out = . packet.proto
 
 :end
 echo finished

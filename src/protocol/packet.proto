@@ -1,16 +1,10 @@
-package protocol
+package protocol;
 
 //	协议包
-message Packet{
-	optional int32 opcode = 1;
-	optional string name = 2;
-	optional int32 module = 3;
-	optional int32 action = 4;
-	optional bytes data = 5;
-}
-
-
-
-
-
-
+message Packet {
+	optional int32 opcode = 1;	//	消息号保留
+	optional string name = 2;	//	消息名字
+	optional int32 module = 3;	//	接受的模块号
+	optional int32 action = 4;	//	
+	optional bytes data = 5;	//	具体的消息数据
+};
